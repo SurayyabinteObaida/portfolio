@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surayya Obaid — Lecturer & Researcher</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #F7F5F0;
+  --surface: #FFFFFF;
+  --surface2: #F2EFE8;
+  --ink: #1C1A16;
+  --ink2: #4B4740;
+  --ink3: #8A857C;
+  --line: #E3DFD6;
+  --green: #2A5C40;
+  --green-l: #EAF3EC;
+  --green-b: #C1D9C8;
+  --teal: #1A5C6A;
+  --teal-l: #E4F1F4;
+  --amber: #7A5010;
+  --amber-l: #FBF0DC;
+  --coral: #7A3020;
+  --coral-l: #F8EBE7;
+  --purple: #4A3A8A;
+  --purple-l: #EEECFB;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Outfit', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(247,245,240,0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3rem; height: 58px;
+}
+.nav-brand { font-family: var(--serif); font-size: 17px; font-weight: 400; color: var(--ink); letter-spacing: -0.01em; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 13px; font-weight: 400; color: var(--ink2); text-decoration: none; letter-spacing: 0.03em; transition: color .2s; }
+.nav-links a:hover { color: var(--green); }
+
+/* ── LAYOUT ── */
+.wrap { max-width: 940px; margin: 0 auto; padding: 0 2.5rem; }
+
+/* ── HERO ── */
+#hero {
+  padding: 5rem 0 4.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.hero-grid { display: grid; grid-template-columns: 1fr 220px; gap: 4rem; align-items: start; }
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 1.1rem;
+}
+.hero-tag::before { content:''; display:block; width:20px; height:1px; background: var(--green); }
+.hero-name {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6vw, 4.6rem);
+  font-weight: 400; line-height: 1.08;
+  letter-spacing: -0.03em; color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+.hero-name span { font-style: italic; color: var(--green); }
+.hero-bio { font-size: 15px; color: var(--ink2); line-height: 1.8; max-width: 500px; margin-bottom: 1.5rem; }
+.hero-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font-size: 12px; padding: 4px 12px; border-radius: 20px;
+  border: 1px solid var(--line); background: var(--surface);
+  color: var(--ink2);
+}
+.hero-aside { padding-top: 0.5rem; }
+.aside-block { margin-bottom: 1.6rem; }
+.aside-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink3); margin-bottom: 0.4rem; }
+.aside-value { font-size: 13px; color: var(--ink2); line-height: 1.7; }
+.aside-value a { color: var(--green); text-decoration: none; }
+.aside-value a:hover { text-decoration: underline; }
+.stat-row { display: flex; gap: 1.5rem; margin-top: 0.75rem; }
+.stat { text-align: center; }
+.stat-n { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; color: var(--ink); display: block; }
+.stat-l { font-size: 11px; color: var(--ink3); }
+
+/* ── SECTION SHELL ── */
+section { padding: 3.5rem 0; border-bottom: 1px solid var(--line); }
+section:last-of-type { border-bottom: none; padding-bottom: 5rem; }
+
+.sec-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+.sec-tag {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink3); white-space: nowrap;
+}
+.sec-rule { flex: 1; height: 1px; background: var(--line); }
+
+/* ── CARDS ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.6rem 1.8rem;
+}
+.card + .card { margin-top: 14px; }
+.card-accent { border-left: 3px solid var(--green); }
+.card-accent-teal { border-left: 3px solid var(--teal); }
+.card-accent-amber { border-left: 3px solid var(--amber); }
+.card-accent-coral { border-left: 3px solid var(--coral); }
+
+.card-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 0.5rem; }
+.card-sub { font-size: 12px; color: var(--ink3); margin-bottom: 0.75rem; letter-spacing: 0.02em; }
+.card-body { font-size: 14px; color: var(--ink2); line-height: 1.75; margin-bottom: 1rem; }
+.card-body:last-child { margin-bottom: 0; }
+
+.badge {
+  display: inline-block; font-size: 10px; font-weight: 500;
+  padding: 2px 9px; border-radius: 20px;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  margin-left: 10px; vertical-align: middle;
+}
+.badge-amber { background: var(--amber-l); color: var(--amber); border: 1px solid #E8C880; }
+.badge-green { background: var(--green-l); color: var(--green); border: 1px solid var(--green-b); }
+
+/* ── TAGS ── */
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.tag { font-size: 11px; padding: 3px 10px; border-radius: 20px; }
+.tg { background: var(--green-l); color: var(--green); border: 1px solid var(--green-b); }
+.tt { background: var(--teal-l); color: var(--teal); border: 1px solid #A8D0D8; }
+.ta { background: var(--amber-l); color: var(--amber); border: 1px solid #E8C880; }
+.tc { background: var(--coral-l); color: var(--coral); border: 1px solid #E0B0A4; }
+.tp { background: var(--purple-l); color: var(--purple); border: 1px solid #C4BAEC; }
+.tn { background: var(--surface2); color: var(--ink2); border: 1px solid var(--line); }
+
+/* ── TWO-COL GRID ── */
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 14px; }
+
+/* ── COURSE TABLE ── */
+.course-list { display: grid; gap: 10px; }
+.course-item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1rem 1.25rem 1rem 1.5rem;
+  display: flex; gap: 14px; align-items: flex-start;
+  transition: border-color .2s;
+}
+.course-item:hover { border-color: #C8C4BC; }
+.cdot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+.c-h4 { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+.c-p { font-size: 12px; color: var(--ink3); line-height: 1.5; }
+.course-level {
+  margin-left: auto; flex-shrink: 0;
+  font-size: 10px; padding: 2px 8px; border-radius: 10px;
+  background: var(--surface2); color: var(--ink3); border: 1px solid var(--line);
+  align-self: flex-start;
+}
+
+/* ── SKILLS ── */
+.skill-group { margin-bottom: 1.25rem; }
+.skill-group:last-child { margin-bottom: 0; }
+.skill-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink3); margin-bottom: 0.5rem; }
+
+/* ── ROLES TIMELINE ── */
+.role-item { display: flex; gap: 1.25rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
+.role-item:last-child { border-bottom: none; }
+.role-icon {
+  width: 38px; height: 38px; border-radius: 9px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px;
+}
+.role-title { font-size: 14px; font-weight: 500; margin-bottom: 2px; }
+.role-org { font-size: 12px; color: var(--ink3); margin-bottom: 4px; }
+.role-desc { font-size: 13px; color: var(--ink2); line-height: 1.6; }
+
+/* ── PUB LIST ── */
+.pub-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+  display: flex; gap: 1rem; align-items: flex-start;
+}
+.pub-item:last-child { border-bottom: none; }
+.pub-num { font-family: var(--serif); font-size: 1.2rem; color: var(--ink3); flex-shrink: 0; width: 28px; }
+.pub-title { font-size: 14px; font-weight: 500; margin-bottom: 3px; line-height: 1.5; }
+.pub-meta { font-size: 12px; color: var(--ink3); line-height: 1.6; }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 2rem 0;
+  text-align: center;
+}
+footer p { font-size: 12px; color: var(--ink3); }
+
+/* ── ANIMATIONS ── */
+@keyframes up { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
+#hero, section { animation: up .5s ease both; }
+section:nth-of-type(2) { animation-delay:.06s; }
+section:nth-of-type(3) { animation-delay:.1s; }
+section:nth-of-type(4) { animation-delay:.14s; }
+section:nth-of-type(5) { animation-delay:.18s; }
+section:nth-of-type(6) { animation-delay:.22s; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:680px){
+  nav { padding: 0 1.25rem; }
+  .nav-links { gap: 1.2rem; }
+  .wrap { padding: 0 1.25rem; }
+  .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+  #hero { padding: 3rem 0 3rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">Surayya Obaid</span>
+  <ul class="nav-links">
+    <li><a href="#research">Research</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+
+    <li><a href="#systems">Systems</a></li>
+    <li><a href="#fyp">FYP</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#skills">Skills</a></li>
+  </ul>
+</nav>
+
+<div id="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="hero-tag">Lecturer &amp; PhD Researcher</p>
+        <h1 class="hero-name">Surayya<br><span>Obaid</span></h1>
+        <p class="hero-bio">Lecturer at Jinnah University for Women and PhD researcher investigating the security of AI-generated code. Building intelligent systems, designing OBE-aligned curricula, and supervising student projects that win national competitions.</p>
+        <div class="hero-chips">
+          <span class="chip">LLM Security</span>
+          <span class="chip">Agentic AI</span>
+          <span class="chip">Generative AI</span>
+          <span class="chip">Computer Vision</span>
+          <span class="chip">IoT</span>
+          <span class="chip">HCI</span>
+        </div>
+      </div>
+      <div class="hero-aside">
+        <div class="aside-block">
+          <p class="aside-label">Position</p>
+          <p class="aside-value">Lecturer<br>Dept. of CS &amp; SE<br>Jinnah University for Women<br>Karachi, Pakistan</p>
+        </div>
+        <div class="aside-block">
+          <p class="aside-label">Profiles</p>
+          <p class="aside-value">
+            <a href="https://scholar.google.com/citations?user=Px2ooBYAAAAJ" target="_blank">Google Scholar</a><br>
+            <a href="https://www.researchgate.net/profile/Surayya-Obaid" target="_blank">ResearchGate</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-tag">PhD Research</span><div class="sec-rule"></div></div>
+
+    <div class="card card-accent" style="margin-bottom:14px;">
+      <p class="card-title">Security of LLM-generated code <span class="badge badge-amber">In progress</span></p>
+      <p class="card-sub">PhD Thesis · Jinnah University for Women</p>
+      <p class="card-body">Investigates whether proactive vulnerability prevention or post-hoc repair more effectively reduces security flaws in AI-generated web backend code. Constructs a novel multi-language benchmark dataset of web backend tasks, generates code across multiple LLMs, and evaluates three mitigation strategies — hint-based prevention, direct repair feedback, and explained repair feedback — using CodeQL static analysis. Extends prior work (SecurityEval, SecCodePLT) with a web-specific, multi-language scope.</p>
+      <div class="tags">
+        <span class="tag tg">LLM security</span>
+        <span class="tag tg">CodeQL</span>
+        <span class="tag tg">Semgrep</span>
+        <span class="tag tg">web backend</span>
+        <span class="tag tg">benchmark dataset</span>
+        <span class="tag tg">static analysis</span>
+        <span class="tag tg">vulnerability prevention</span>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:2.5rem;"><span class="sec-tag">Projects</span><div class="sec-rule"></div></div>
+    <div class="grid2">
+
+      <div class="card card-accent-teal">
+        <p class="card-title">PROACT / PHA Framework</p>
+        <p class="card-sub">Agentic health AI · LangGraph</p>
+        <p class="card-body">Personalized health agent with longitudinal patient profiling, onset detection, and specialist panel routing for pre-visit clinical triage. Evaluated against stateless baselines (B1/B2) across 50 patient profiles; full framework consistently outperformed both.</p>
+        <div class="tags">
+          <span class="tag tt">LangGraph</span>
+          <span class="tag tt">Anthropic API</span>
+          <span class="tag tt">MedGemma</span>
+          <span class="tag tt">healthcare AI</span>
+        </div>
+      </div>
+
+      <div class="card card-accent-amber">
+        <p class="card-title">ZMC Web Application</p>
+        <p class="card-sub">Production software · Flask + PostgreSQL</p>
+        <p class="card-body">Full-stack production web application with form management, database integration, and multi-module architecture. Built with Flask, PostgreSQL, and Python across a structured codebase with environment-based configuration.</p>
+        <div class="tags">
+          <span class="tag ta">Flask</span>
+          <span class="tag ta">PostgreSQL</span>
+          <span class="tag ta">Python</span>
+          <span class="tag ta">production</span>
+        </div>
+      </div>
+
+      <div class="card card-accent-coral">
+        <p class="card-title">AI-powered course portal</p>
+        <p class="card-sub">EdTech · Claude API + Node.js</p>
+        <p class="card-body">An intelligent course management portal that generates lecture slides, suggests resources, and supports educator workflows — built using the Anthropic API with structured JSON outputs and a REST backend.</p>
+        <div class="tags">
+          <span class="tag tc">Anthropic API</span>
+          <span class="tag tc">Node.js</span>
+          <span class="tag tc">EdTech</span>
+        </div>
+      </div>
+
+      <div class="card" style="border-left: 3px solid var(--purple);">
+        <p class="card-title">SeerahGPT</p>
+        <p class="card-sub">Published · RAG-based LLM</p>
+        <p class="card-body">Retrieval-Augmented Generation system built on a large language model.</p>
+        <div class="tags">
+          <span class="tag tp">RAG</span>
+          <span class="tag tp">LLM</span>
+          <span class="tag tp">published</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-tag">Teaching</span><div class="sec-rule"></div></div>
+    <p style="font-size:13px; color:var(--ink3); margin-bottom:1.5rem;">Dept. of CS &amp; SE · Jinnah University for Women · OBE-aligned curricula with CLO/PLO mapping across all courses</p>
+
+    <div class="course-list">
+      <div class="course-item">
+        <div class="cdot" style="background:#1D9E75;"></div>
+        <div style="flex:1;">
+          <p class="c-h4">Database Systems</p>
+          <p class="c-p">EER modeling, normalization, transactions, ACID, conflict serializability, relational algebra, backup &amp; recovery, query optimization</p>
+        </div>
+        <span class="course-level">UG</span>
+      </div>
+      <div class="course-item">
+        <div class="cdot" style="background:#534AB7;"></div>
+        <div style="flex:1;">
+          <p class="c-h4">Deep Learning</p>
+          <p class="c-p">Architectures, CNNs, GNNs, representation learning, self-supervised learning, efficient training, active research frontiers</p>
+        </div>
+        <span class="course-level">MS</span>
+      </div>
+      <div class="course-item">
+        <div class="cdot" style="background:#185FA5;"></div>
+        <div style="flex:1;">
+          <p class="c-h4">Mobile App Development</p>
+          <p class="c-p">Flutter, Dart, app architecture, state management, platform integration, UI/UX fundamentals</p>
+        </div>
+        <span class="course-level">UG</span>
+      </div>
+      <div class="course-item">
+        <div class="cdot" style="background:#D85A30;"></div>
+        <div style="flex:1;">
+          <p class="c-h4">Web Engineering</p>
+          <p class="c-p">Flask, REST APIs, backend architecture, database integration, deployment, full-stack development workflows</p>
+        </div>
+        <span class="course-level">UG</span>
+      </div>
+      <div class="course-item">
+        <div class="cdot" style="background:#BA7517;"></div>
+        <div style="flex:1;">
+          <p class="c-h4">Data Structures &amp; Algorithms</p>
+          <p class="c-p">Complexity analysis, trees, graphs, sorting, searching — foundational CS with emphasis on problem-solving</p>
+        </div>
+        <span class="course-level">UG</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SYSTEMS -->
+<section id="systems">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-tag">Departmental Systems</span><div class="sec-rule"></div></div>
+    <p style="font-size:13px; color:var(--ink3); margin-bottom:1.5rem;">Internal systems built and maintained for the Department of CS &amp; SE, Jinnah University for Women</p>
+
+    <div class="grid2">
+
+      <div class="card card-accent">
+        <p class="card-title">Course Resources Repository</p>
+        <p class="card-sub">Dept. of CS &amp; SE · In use since 2021</p>
+        <p class="card-body">A centralised course resources management portal serving the entire department faculty. Organises and maintains lecture notes, assignments, quizzes, past papers, and course materials across all programmes — providing a unified, accessible system for faculty-wide use.</p>
+        <div class="tags">
+          <span class="tag tg">faculty-wide</span>
+          <span class="tag tg">course management</span>
+          <span class="tag tg">since 2021</span>
+        </div>
+      </div>
+
+      <div class="card card-accent-teal">
+        <p class="card-title">OBE Management System</p>
+        <p class="card-sub">Dept. of CS &amp; SE · In use since 2025</p>
+        <p class="card-body">An internal system for implementing and managing Outcome-Based Education across the department. Handles CLO/PLO mapping, assessment rubric design, and alignment reporting for all courses — supporting HEC accreditation requirements for the entire department.</p>
+        <div class="tags">
+          <span class="tag tt">OBE</span>
+          <span class="tag tt">CLO / PLO mapping</span>
+          <span class="tag tt">HEC accreditation</span>
+          <span class="tag tt">since 2025</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FYP -->
+<section id="fyp">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-tag">FYP Supervision</span><div class="sec-rule"></div></div>
+    <p style="font-size:13px; color:var(--ink3); margin-bottom:2rem;">Final year projects supervised at the Dept. of CS &amp; SE, Jinnah University for Women</p>
+
+    <div class="sec-head" style="margin-bottom:1rem;"><span class="sec-tag" style="color:var(--green);">FYP 2025</span><div class="sec-rule"></div></div>
+    <div class="grid2" style="margin-bottom:2rem;">
+
+      <div class="card card-accent">
+        <p class="card-title">Edvoke</p>
+        <p class="card-sub">Academic Management</p>
+        <p class="card-body">AI-powered Outcomes-Based Learning platform for higher education institutions. Provides CLO-PO mapping, predictive analytics, student performance tracking, and automated accreditation reporting.</p>
+        <p style="font-size:11px; color:var(--ink3); margin-top:8px;">Hudaibia Feroz, Laiba Irfan, Nimra Khan Jadoon, Farah Islam</p>
+        <div class="tags"><span class="tag tg">ReactJS</span><span class="tag tg">Firebase</span><span class="tag tg">Node</span><span class="tag tg">Express</span></div>
+      </div>
+
+      <div class="card card-accent">
+        <p class="card-title">Basira-tul-Hikmah</p>
+        <p class="card-sub">Islamic EdTech</p>
+        <p class="card-body">Interactive Quran and Tajweed learning app with AI-generated quizzes powered by the Gemini model, personalised audio reciters, recitation feedback, and progress tracking across web and mobile.</p>
+        <p style="font-size:11px; color:var(--ink3); margin-top:8px;">Iman Nadeem, Fajar Rafiq, Hafsa Farhan</p>
+        <div class="tags"><span class="tag tg">React JS</span><span class="tag tg">React Native</span><span class="tag tg">Firebase</span><span class="tag tg">Expo Go</span></div>
+      </div>
+
+      <div class="card card-accent">
+        <p class="card-title">Masar-al-Shifa</p>
+        <p class="card-sub">Healthcare</p>
+        <p class="card-body">AI-based smart healthcare system for web and mobile. Performs clinical assessment from user-entered symptoms, provides allopathic, homeopathic, and home remedy recommendations, BMI tracking, and an AI-powered health chatbot.</p>
+        <p style="font-size:11px; color:var(--ink3); margin-top:8px;">Esha Israr, Laiba Khan, Wardah Sattar, Saadia Ali</p>
+        <div class="tags"><span class="tag tg">React.js</span><span class="tag tg">Node.js</span><span class="tag tg">React Native</span><span class="tag tg">Firebase</span></div>
+      </div>
+
+    </div>
+
+    <div class="sec-head" style="margin-bottom:1rem;"><span class="sec-tag" style="color:var(--teal);">FYP 2024</span><div class="sec-rule"></div></div>
+    <div class="grid2" style="margin-bottom:2rem;">
+
+      <div class="card card-accent-teal">
+        <p class="card-title">HireSwiftly</p>
+        <p class="card-sub">AI Recruitment</p>
+        <p class="card-body">AI-powered recruitment software using NLP to automate job posting, application screening, and resume analysis. Conducts real-time AI interviews, generates tailored assessments, and produces candidate recommendation reports.</p>
+        <p style="font-size:11px; color:var(--ink3); margin-top:8px;">Ashfia Binte Waqar, Nimra Jawed, Syeda Urooba Amjad, Zoya Dilshad</p>
+      </div>
+
+      <div class="card card-accent-teal">
+        <p class="card-title">Werkee</p>
+        <p class="card-sub">Freelance Platform</p>
+        <p class="card-body">Online freelance marketplace connecting recruiters and skilled candidates. Features skill assessments, real-time chat, AI career counseling, project showcases, and job postings.</p>
+        <p style="font-size:11px; color:var(--ink3); margin-top:8px;">Zoya Rizvi, Maheen Khalid, Hafsah Shahzad</p>
+      </div>
+
+      <div class="card card-accent-teal">
+        <p class="card-title">Oldvoy</p>
+        <p class="card-sub">Senior Care</p>
+        <p class="card-body">Comprehensive monitoring system for elderly adults. Includes fall detection via smartwatch, medication and appointment management, emergency response services, reminders, and a real-time chatbot.</p>
+        <p style="font-size:11px; color:var(--ink3); margin-top:8px;">Amna Khanani, Areeba M. Sohail, Eshal Shahid, Fizza Tariq</p>
+      </div>
+
+    </div>
+
+    <div class="sec-head" style="margin-bottom:1rem;"><span class="sec-tag" style="color:var(--amber);">FYP 2020</span><div class="sec-rule"></div></div>
+    <div class="grid2">
+      <div class="card card-accent-amber">
+        <p class="card-title">Hayya Alal Falah</p>
+        <p class="card-sub">Ignite Funded Project · Batch SE 2020</p>
+        <p class="card-body">Ignite-funded final year project from Batch SE 2020.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-tag">Publications</span><div class="sec-rule"></div></div>
+    <p style="font-size:13px; color:var(--ink3); margin-bottom:1.5rem;"><a href="https://www.researchgate.net/profile/Surayya-Obaid" target="_blank" style="color:var(--green);">ResearchGate</a> · <a href="https://scholar.google.com/citations?user=Px2ooBYAAAAJ" target="_blank" style="color:var(--green);">Google Scholar</a></p>
+
+    <div class="card">
+      <div class="pub-item">
+        <span class="pub-num">01</span>
+        <div>
+          <p class="pub-title">SeerahGPT: Retrieval Augmented Generation based Large Language Model</p>
+          <p class="pub-meta">Conference Paper · Dec 2024 · with Narmeen Bawany</p>
+        </div>
+      </div>
+      <div class="pub-item">
+        <span class="pub-num">02</span>
+        <div>
+          <p class="pub-title">Deep Learning-Based Driver Activity Recognition Using Diverse Driver Profiles</p>
+          <p class="pub-meta">Journal Article · IEEE Access · Dec 2024 · with Narmeen Bawany, Shahab Tahzeeb, Tehreem Qamar, Muhammad Hussain Mughal</p>
+        </div>
+      </div>
+      <div class="pub-item">
+        <span class="pub-num">03</span>
+        <div>
+          <p class="pub-title">Deep Learning for Violence Detection in Surveillance: The Role of Transfer Learning and Pre-Trained Models</p>
+          <p class="pub-meta">Conference Paper · ACIT 2023 · with Anum Ilyas, Narmeen Bawany</p>
+        </div>
+      </div>
+      <div class="pub-item">
+        <span class="pub-num">04</span>
+        <div>
+          <p class="pub-title">Multilevel Classification of Pakistani News using Machine Learning</p>
+          <p class="pub-meta">Conference Paper · Dec 2021 · with Anum Ilyas, Narmeen Bawany</p>
+        </div>
+      </div>
+      <div class="pub-item">
+        <span class="pub-num">05</span>
+        <div>
+          <p class="pub-title">Real Time News Classification Using Machine Learning</p>
+          <p class="pub-meta">with Narmeen Bawany</p>
+        </div>
+      </div>
+      <div class="pub-item">
+        <span class="pub-num">06</span>
+        <div>
+          <p class="pub-title">Recent Trends in Green Computing</p>
+          <p class="pub-meta">Book Chapter · Springer · Innovations in Smart Cities Applications Vol. 4 · 2021 · with Narmeen Bawany, Hiba binte Tariq, Aimun Tahir, Namrah Komal</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-tag">Skills &amp; Tools</span><div class="sec-rule"></div></div>
+
+    <div class="card">
+      <div class="skill-group">
+        <p class="skill-label">Languages &amp; Frameworks</p>
+        <div class="tags" style="margin-top:0;">
+          <span class="tag tn">Python</span><span class="tag tn">Flask</span><span class="tag tn">Flutter</span><span class="tag tn">Dart</span><span class="tag tn">HTML / CSS</span><span class="tag tn">JavaScript</span><span class="tag tn">SQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-label">AI / Research</p>
+        <div class="tags" style="margin-top:0;">
+          <span class="tag tn">Anthropic API</span><span class="tag tn">LangGraph</span><span class="tag tn">HuggingFace</span><span class="tag tn">MedGemma</span><span class="tag tn">CodeQL</span><span class="tag tn">Semgrep</span><span class="tag tn">Scikit-learn</span><span class="tag tn">PyTorch</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-label">Infrastructure &amp; Tools</p>
+        <div class="tags" style="margin-top:0;">
+          <span class="tag tn">PostgreSQL</span><span class="tag tn">Git</span><span class="tag tn">GitHub</span><span class="tag tn">Linux</span><span class="tag tn">Windows</span><span class="tag tn">Google Colab</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-label">Academic &amp; Educational</p>
+        <div class="tags" style="margin-top:0;">
+          <span class="tag tn">OBE / CLO mapping</span><span class="tag tn">Curriculum design</span><span class="tag tn">FYP supervision</span><span class="tag tn">Exam design</span><span class="tag tn">Social media management</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Surayya Obaid · Lecturer, Dept. of CS &amp; SE · Jinnah University for Women, Karachi · <a href="mailto:surayya@juw.edu.pk" style="color:var(--green);">surayya@juw.edu.pk</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
